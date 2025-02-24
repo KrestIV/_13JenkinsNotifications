@@ -30,7 +30,6 @@ public class TestBase {
         Configuration.browserCapabilities = capabilities;
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        //Configuration.holdBrowserOpen = true;
 
     }
 
@@ -47,7 +46,7 @@ public class TestBase {
         String pw = System.getProperty("pw");
         String server = System.getProperty("server");
 
-        return "https://" + login + ":" + pw + "@" + server + "/wd/hub";//https://user1:1234@selenoid.autotests.cloud/wd/hub
+        return "https://" + login + ":" + pw + "@" + server + "/wd/hub";
     }
 
     static String getBrowser(){
@@ -55,8 +54,7 @@ public class TestBase {
     }
 
     static String getBrowserVersion(){
-        if(System.getProperty("browser").equals("ie")) return System.getProperty("version");
-        else return null;
+        return System.getProperty("version",null);
     }
 
     static String getBrowserSize(){
